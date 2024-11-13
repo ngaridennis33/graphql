@@ -1,9 +1,30 @@
-// Prisma file
+//  <!----- Define the Prisma Client generator configuration  -----> //
 generator client {
   provider = "prisma-client-js"
 }
 
+//  <!----- Define the PostgreSQL datasource configuration -----> //
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+// Models
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  name      String?
+  posts     Post[]
+  createdAt DateTime @default(now())
+}
+
+model Post {
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String
+  published Boolean  @default(false)
+  authorId  Int
+  author    User     @relation(fields: [authorId], references: [id])
+  createdAt DateTime @default(now())
 }
