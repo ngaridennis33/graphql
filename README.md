@@ -1,9 +1,8 @@
 # GRAPHQL API WITH PRISMA
 
 ## Project Structure 
-
+```plaintext
 graphql-express-prisma
-│
 ├── prisma
 │   ├── migrations
 │   └── schema.prisma
@@ -35,6 +34,7 @@ graphql-express-prisma
 ├── nixpacks.toml
 ├── package.json
 └── tsconfig.json
+```
 
 ## Dependancies
 
